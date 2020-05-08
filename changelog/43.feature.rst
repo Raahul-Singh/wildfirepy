@@ -1,0 +1,3 @@
+Added a GitHub action to prevent merging of pull requests without changelog and notifies the user about the missing changelog.
+
+The action used: https://github.com/masterashu/check_changelog
