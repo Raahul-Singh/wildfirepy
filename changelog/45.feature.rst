@@ -1,0 +1,3 @@
+Added a GitHub action to welcome users on every Pull Request.
+
+The action used: https://github.com/masterashu/welcome_to

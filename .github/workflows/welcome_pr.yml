@@ -1,0 +1,19 @@
+name: Welcome to WildfirePy
+
+on:
+  pull_request:
+    type: [opened]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    steps:
+      - uses: masterashu/welcome_to@v0.2
+        with:
+          welcome_message: >
+            Hi @${{ github.actor }}! Thanks for the PR.
+            The people responsible will review your PR shortly.
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
