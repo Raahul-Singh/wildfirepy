@@ -5,7 +5,7 @@ from urllib.request import HTTPBasicAuthHandler, HTTPCookieProcessor
 from http.cookiejar import CookieJar
 import re
 
-__all__ = ['URLOpenerWithRedirect', 'USGSHtmlParser']
+__all__ = ['URLOpenerWithRedirect', 'MODISHtmlParser']
 
 
 class URLOpenerWithRedirect:
@@ -55,15 +55,16 @@ class URLOpenerWithRedirect:
         return self.opener.open(url)
 
 
-class USGSHtmlParser:
+class MODISHtmlParser:
     """
     Description
     -----------
     A Regex based HTML parser for USGS MODIS data server.
     When called with a URL, stores the HTML page as an `str`.
     """
-    def __init__(self):
+    def __init__(self, product=''):
         self.url_opener = URLOpenerWithRedirect()
+        self.product=product
 
     def __call__(self, url):
         self.html_content = self.url_opener(url).read().decode('cp1252')
@@ -72,7 +73,7 @@ class USGSHtmlParser:
         """
         Returns list of all `hdf` files available for download.
         """
-        return re.findall(r'href="(MCD64A1.*hdf)"', self.html_content)
+        return re.findall(r'' + f'href="({self.product}.*hdf)"', self.html_content)
 
     def get_all_jpg_files(self):
         """
@@ -84,7 +85,7 @@ class USGSHtmlParser:
         """
         Returns list of all `xml` files available for download.
         """
-        return re.findall(r'href="(MCD64A1.*hdf.xml)"', self.html_content)
+        return re.findall(r'' + f'href="({self.product}.*hdf.xml)"', self.html_content)
 
     def get_all_files(self):
         """
@@ -101,14 +102,12 @@ class USGSHtmlParser:
     def get_filename(self, h, v):
         """
         Returns full name of the file based on the Sinusoidal Grid coordinates.
-
         Parameters
         ----------
         h: `int`
             Sinusoidal grid longitude
         v: `int`
             Sinusoidal grid latitude
-
         References
         ----------
         [1] https://modis-land.gsfc.nasa.gov/MODLAND_grid.html
