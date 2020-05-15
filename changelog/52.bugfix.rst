@@ -1,0 +1,1 @@
+Removes buggy `Welcome to WildfirePy` github action.
