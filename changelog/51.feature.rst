@@ -1,0 +1,2 @@
+Refactors a lot of code, making the USGS client more abstract.
+Adds VIIRS client.
