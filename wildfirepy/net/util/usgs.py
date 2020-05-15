@@ -5,8 +5,7 @@ from urllib.request import HTTPBasicAuthHandler, HTTPCookieProcessor
 from http.cookiejar import CookieJar
 import re
 
-__all__ = ['URLOpenerWithRedirect', 'MODISHtmlParser']
-
+__all__ = ['URLOpenerWithRedirect', 'MODISHtmlParser', 'VIIRSHtmlParser']
 
 class URLOpenerWithRedirect:
     """
@@ -53,7 +52,6 @@ class URLOpenerWithRedirect:
 
     def __call__(self, url):
         return self.opener.open(url)
-
 
 class MODISHtmlParser:
     """
@@ -122,3 +120,19 @@ class MODISHtmlParser:
             raise ValueError("No file exists for given coordinates.")
 
         return match[0]
+
+class VIIRSHtmlParser:
+    """
+    Description
+    -----------
+    A Regex based HTML parser for USGS VIIRS data server.
+    When called with a URL, stores the HTML page as an `str`.
+    """
+    def __init__(self, product=''):
+        self.url_opener = URLOpenerWithRedirect()
+
+    def __call__(self, url):
+        self.html_content = self.url_opener(url).read().decode('cp1252')
+
+    def get_filename(self, partial):
+        return re.findall(r'' + f'>({partial}.*h5)', self.html_content)[0]
