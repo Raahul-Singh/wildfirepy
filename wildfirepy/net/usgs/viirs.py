@@ -1,4 +1,4 @@
-from wildfirepy.net.usgs.USGSdownloader import AbstractUSGSDownloader
+from wildfirepy.net.usgs.usgs_downloader import AbstractUSGSDownloader
 from wildfirepy.net.util.usgs import VIIRSHtmlParser
 import datetime
 
