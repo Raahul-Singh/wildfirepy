@@ -4,6 +4,7 @@ import datetime
 
 __all__ = ['VIIRSBurntAreaDownloader']
 
+
 class Viirs(AbstractUSGSDownloader):
     """
     Description
@@ -17,7 +18,7 @@ class Viirs(AbstractUSGSDownloader):
         self.regex_traverser = VIIRSHtmlParser(product=product)
 
     def _get_nearest_time(self, hours, minutes):
-        
+
         if not 0 <= minutes < 60:
             raise ValueError("Minutes must be between 0 and 60")
 
@@ -48,7 +49,7 @@ class Viirs(AbstractUSGSDownloader):
     def get_h5(self, *, year, month, date, hours, minutes, **kwargs):
         """
         Downloads the `h5` file and stores it on the disk.
-        
+
         Parameters
         ----------
         year: `int`
@@ -60,7 +61,7 @@ class Viirs(AbstractUSGSDownloader):
         hours: `int`
             Hour of observation. UTC time.
         minutes: `int`
-            Minute of observation. UTC time. 
+            Minute of observation. UTC time.
         kwargs: `dict`
             keyword arguments to be passed to `AbstractUSGSDownloader.fetch`
 
@@ -82,7 +83,7 @@ class Viirs(AbstractUSGSDownloader):
     def get_xml(self, *, year, month, date, hours, minutes, **kwargs):
         """
         Downloads the `xml` file and stores it on the disk.
-        
+
         Parameters
         ----------
         year: `int`
@@ -94,7 +95,7 @@ class Viirs(AbstractUSGSDownloader):
         hours: `int`
             Hour of observation. UTC time.
         minutes: `int`
-            Minute of observation. UTC time. 
+            Minute of observation. UTC time.
         kwargs: `dict`
             keyword arguments to be passed to `AbstractUSGSDownloader.fetch`
 

@@ -36,8 +36,8 @@ def get_cksum_size(file):
 def test_fetch(tmpdir, obs_date, obs_time):
 
     hdf_file = downloader.get_h5(year=obs_date['year'], month=obs_date['month'],
-                                  date=obs_date['date'], hours=obs_time['hours'],
-                                  minutes=obs_time['minutes'], path=tmpdir)
+                                 date=obs_date['date'], hours=obs_time['hours'],
+                                 minutes=obs_time['minutes'], path=tmpdir)
     xml_file = downloader.get_xml(year=obs_date['year'], month=obs_date['month'],
                                   date=obs_date['date'], hours=obs_time['hours'],
                                   minutes=obs_time['minutes'], path=tmpdir)
@@ -51,4 +51,3 @@ def test_fetch(tmpdir, obs_date, obs_time):
 
     assert checksum_upstream == checksum
     assert filesize_upstream == filesize
-

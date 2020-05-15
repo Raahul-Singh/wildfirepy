@@ -4,6 +4,7 @@ from wildfirepy.net.usgs.USGSdownloader import AbstractUSGSDownloader
 
 __all__ = ['ModisBurntAreaDownloader']
 
+
 class Modis(AbstractUSGSDownloader):
     """
     Description
@@ -155,6 +156,7 @@ class Modis(AbstractUSGSDownloader):
         date = f"{str(year)}.{month}.01/"
         url = self.base_url + date + filename
         return self.fetch(url=url, filename=filename, **kwargs)
+
 
 class ModisBurntAreaDownloader(Modis):
     """

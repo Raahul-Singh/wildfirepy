@@ -53,6 +53,7 @@ class URLOpenerWithRedirect:
     def __call__(self, url):
         return self.opener.open(url)
 
+
 class MODISHtmlParser:
     """
     Description
@@ -62,7 +63,7 @@ class MODISHtmlParser:
     """
     def __init__(self, product=''):
         self.url_opener = URLOpenerWithRedirect()
-        self.product=product
+        self.product = product
 
     def __call__(self, url):
         self.html_content = self.url_opener(url).read().decode('cp1252')
@@ -120,6 +121,7 @@ class MODISHtmlParser:
             raise ValueError("No file exists for given coordinates.")
 
         return match[0]
+
 
 class VIIRSHtmlParser:
     """

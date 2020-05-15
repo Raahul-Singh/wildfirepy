@@ -5,6 +5,7 @@ from urllib.error import HTTPError
 
 __all__ = ['AbstractUSGSDownloader']
 
+
 class AbstractUSGSDownloader:
     """
     Description
