@@ -4,7 +4,6 @@ from xml.dom import minidom
 from wildfirepy.net.usgs import VIIRSBurntAreaDownloader
 from wildfirepy.net.util import URLOpenerWithRedirect, VIIRSHtmlParser
 
-opener = URLOpenerWithRedirect()
 downloader = VIIRSBurntAreaDownloader()
 
 
