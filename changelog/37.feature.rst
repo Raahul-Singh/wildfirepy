@@ -1,0 +1,2 @@
+Added `ReadH5()` method to `~wildfirepy.io` submodule for making reader objects and
+extracting subdatasets from H5 files.

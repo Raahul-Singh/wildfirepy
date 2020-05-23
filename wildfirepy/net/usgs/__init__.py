@@ -1,4 +1,3 @@
-from wildfirepy.net.usgs.downloader import *
-from wildfirepy.net.usgs.downloader import __all__ as downloader__all__
-
-__all__ = downloader__all__
+from wildfirepy.net.usgs.modis import *
+from wildfirepy.net.usgs.usgs_downloader import *
+from wildfirepy.net.usgs.viirs import *

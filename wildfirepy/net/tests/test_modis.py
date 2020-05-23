@@ -2,7 +2,7 @@ import pytest
 import subprocess
 from xml.dom import minidom
 from wildfirepy.net.usgs import ModisBurntAreaDownloader
-from wildfirepy.net.util import URLOpenerWithRedirect, USGSHtmlParser
+from wildfirepy.net.util import URLOpenerWithRedirect, MODISHtmlParser
 
 opener = URLOpenerWithRedirect()
 downloader = ModisBurntAreaDownloader()
@@ -10,7 +10,7 @@ downloader = ModisBurntAreaDownloader()
 
 @pytest.fixture
 def parser():
-    return USGSHtmlParser()
+    return MODISHtmlParser(product="MCD64A1")
 
 
 @pytest.fixture

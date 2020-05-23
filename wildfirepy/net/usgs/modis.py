@@ -1,24 +1,21 @@
-from wildfirepy.net.util import URLOpenerWithRedirect, USGSHtmlParser
+from wildfirepy.net.util import MODISHtmlParser
 from wildfirepy.coordinates.util import SinusoidalCoordinate
-from pathlib import Path
-from urllib.error import HTTPError
+from wildfirepy.net.usgs.usgs_downloader import AbstractUSGSDownloader
+
+__all__ = ['ModisBurntAreaDownloader']
 
 
-__all__ = ['AbstractUSGSDownloader', 'ModisBurntAreaDownloader']
-
-
-class AbstractUSGSDownloader:
+class Modis(AbstractUSGSDownloader):
     """
     Description
     -----------
-    An Abstract Base Class Downloader for USGS products.
+    An Abstract Base Class Downloader for MODIS products.
     """
-    def __init__(self):
-        self.base_url = 'https://e4ftl01.cr.usgs.gov/'
-        self.regex_traverser = USGSHtmlParser()
+    def __init__(self, data='MOTA', product=''):
+        super().__init__()
+        self.regex_traverser = MODISHtmlParser(product)
         self.converter = SinusoidalCoordinate()
-        self.url_opener = URLOpenerWithRedirect()
-        self.has_files = False
+        self.base_url += f"{data}/"
 
     def get_available_dates(self):
         """
@@ -30,7 +27,6 @@ class AbstractUSGSDownloader:
     def get_files_from_date(self, year, month):
         """
         Returns names of all available files.
-
         Parameters
         ----------
         year: `int`
@@ -65,7 +61,6 @@ class AbstractUSGSDownloader:
     def get_filename(self, latitude, longitude):
         """
         Returns name of file for given latitude and longitude.
-
         Parameters
         ----------
         latitude: `float`
@@ -79,7 +74,6 @@ class AbstractUSGSDownloader:
     def get_hdf(self, *, year, month, latitude, longitude, **kwargs):
         """
         Downloads the `hdf` file and stores it on the disk.
-
         Parameters
         ----------
         year: `int`
@@ -91,7 +85,6 @@ class AbstractUSGSDownloader:
         longitude: `float`
             longitude of the observation.
         kwargs: keyword arguments to be passed to `AbstractUSGSDownloader.fetch`
-
         Returns
         -------
         path: `str`
@@ -109,7 +102,6 @@ class AbstractUSGSDownloader:
     def get_xml(self, *, year, month, latitude, longitude, **kwargs):
         """
         Downloads the `xml` file and stores it on the disk.
-
         Parameters
         ----------
         year: `int`
@@ -121,7 +113,6 @@ class AbstractUSGSDownloader:
         longitude: `float`
             longitude of the observation.
         kwargs: keyword arguments to be passed to `AbstractUSGSDownloader.fetch`
-
         Returns
         -------
         path: `str`
@@ -140,7 +131,6 @@ class AbstractUSGSDownloader:
     def get_jpg(self, *, year, month, latitude, longitude, **kwargs):
         """
         Downloads the `jpg` file and stores it on the disk.
-
         Parameters
         ----------
         year: `int`
@@ -152,7 +142,6 @@ class AbstractUSGSDownloader:
         longitude: `float`
             longitude of the observation.
         kwargs: keyword arguments to be passed to `AbstractUSGSDownloader.fetch`
-
         Returns
         -------
         path: `str`
@@ -168,41 +157,8 @@ class AbstractUSGSDownloader:
         url = self.base_url + date + filename
         return self.fetch(url=url, filename=filename, **kwargs)
 
-    def fetch(self, url, path='./', filename='temp.hdf'):
-        """
-        Fetches data from `url`.
 
-        Parameters
-        ----------
-        url: `str`
-            URL to get the data from.
-        path: `str`
-            path to store the downladed file.
-        filename: `str`
-            name of the downladed file.
-
-        Returns
-        -------
-        path: `str`
-            Absolute path to the downloaded `hdf` file.
-        """
-        data_folder = Path(path)
-        filename = data_folder / filename
-        try:
-            response = self.url_opener(url)
-            print("Download Successful!")
-            print("Writing file!")
-            with open(filename, 'wb') as file:
-                file.write(response.read())
-            response.close()
-            return filename.absolute().as_posix()
-
-        except HTTPError as err:
-            output = format(err)
-            print(output)
-
-
-class ModisBurntAreaDownloader(AbstractUSGSDownloader):
+class ModisBurntAreaDownloader(Modis):
     """
     Description
     -----------
@@ -210,5 +166,5 @@ class ModisBurntAreaDownloader(AbstractUSGSDownloader):
     By default downloads data from the 6th collection.
     """
     def __init__(self, collection='006'):
-        super().__init__()
-        self.base_url = self.base_url + f"MOTA/MCD64A1.{collection}/"
+        super().__init__(product="MCD64A1")
+        self.base_url = self.base_url + f"MCD64A1.{collection}/"
