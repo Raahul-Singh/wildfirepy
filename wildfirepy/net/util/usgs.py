@@ -1,9 +1,9 @@
+import re
 import urllib
 import urllib.request
-from urllib.request import HTTPPasswordMgrWithDefaultRealm
-from urllib.request import HTTPBasicAuthHandler, HTTPCookieProcessor
 from http.cookiejar import CookieJar
-import re
+from urllib.request import (HTTPBasicAuthHandler, HTTPCookieProcessor,
+                            HTTPPasswordMgrWithDefaultRealm)
 
 __all__ = ['URLOpenerWithRedirect', 'MODISHtmlParser', 'VIIRSHtmlParser']
 

@@ -1,6 +1,6 @@
-from wildfirepy.net.util import MODISHtmlParser
 from wildfirepy.coordinates.util import SinusoidalCoordinate
 from wildfirepy.net.usgs.usgs_downloader import AbstractUSGSDownloader
+from wildfirepy.net.util import MODISHtmlParser
 
 __all__ = ['ModisBurntAreaDownloader']
 

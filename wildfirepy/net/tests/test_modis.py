@@ -1,8 +1,9 @@
-import pytest
 import subprocess
 from xml.dom import minidom
+
+import pytest
 from wildfirepy.net.usgs import ModisBurntAreaDownloader
-from wildfirepy.net.util import URLOpenerWithRedirect, MODISHtmlParser
+from wildfirepy.net.util import MODISHtmlParser, URLOpenerWithRedirect
 
 opener = URLOpenerWithRedirect()
 downloader = ModisBurntAreaDownloader()

@@ -8,7 +8,7 @@ and institutions:
 * [Dr. Suneet Naithani](https://www.researchgate.net/profile/Suneet_Naithani?ev=hdr_xprf) <br />
   Assistant Professor, Doon University <br />
   Dehradun, Uttarakhand, India. <br />
- 
-* [Shristi Singh](mailto:shristisingh2000@gmail.com) <br /> 
+
+* [Shristi Singh](mailto:shristisingh2000@gmail.com) <br />
   Lady Shri Ram College <br />
   New Delhi, Delhi, India <br />

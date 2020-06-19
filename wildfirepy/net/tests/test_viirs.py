@@ -1,8 +1,9 @@
-import pytest
 import subprocess
 from xml.dom import minidom
+
+import pytest
 from wildfirepy.net.usgs import VIIRSBurntAreaDownloader
-from wildfirepy.net.util import URLOpenerWithRedirect, VIIRSHtmlParser
+from wildfirepy.net.util import VIIRSHtmlParser
 
 downloader = VIIRSBurntAreaDownloader()
 

@@ -20,7 +20,7 @@ For now the easiest thing is to install it locally by running,
 pip install -e .
 ```
 from the directory you just
-downloaded. 
+downloaded.
 
 Usage
 -----

@@ -1,7 +1,7 @@
-from wildfirepy.net.util import URLOpenerWithRedirect
-from wildfirepy.coordinates.util import SinusoidalCoordinate
 from pathlib import Path
 from urllib.error import HTTPError
+
+from wildfirepy.net.util import URLOpenerWithRedirect
 
 __all__ = ['AbstractUSGSDownloader']
 

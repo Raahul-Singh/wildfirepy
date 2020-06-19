@@ -1,8 +1,6 @@
 import h5py
-
 from h5json import Hdf5db
 from h5json.h5tojson.h5tojson import DumpJson
-
 from munch import munchify
 
 __all__ = ['ReadH5']
@@ -44,7 +42,6 @@ class ReadH5:
         `list`
             A list of munchified subdataset objects.
         """
-        sdsets = list()
         if self.json is None:
             print('Use <obj>.tojson() method to convert HDF File to json first!')
             return

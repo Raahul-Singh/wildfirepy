@@ -1,6 +1,6 @@
-from pyproj import Proj
 import math
 
+from pyproj import Proj
 
 __all__ = ['SinusoidalCoordinate', ]
 

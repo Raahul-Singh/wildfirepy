@@ -1,4 +1,3 @@
-from wildfirepy.net import util
-from wildfirepy.net import usgs
+from wildfirepy.net import usgs, util
 
 __all__ = ['usgs', 'util']
