@@ -10,7 +10,7 @@ from wildfirepy.net.snpp import URLOpenerWithRedirect, Viirs1KMParser
 
 __all__ = ['Viirs1KMDownloader']
 
-path = Path(__file__).parent.parent.parent / "data/VIIRS1KM"
+path = Path(__file__).parent.parent.parent / "data/VIIRS1KM/"
 
 class Viirs1KM:
     def __init__(self, product: str):
@@ -193,8 +193,7 @@ class Viirs1KMDownloader():
 
     def get_data(self, *, obsdate: str, latitude: float,
                 longitude: float, fmt: str= "%Y-%m-%d", **kwargs):
-
-        all_files = glob.glob(str(path) + "*h5")
+        all_files = glob.glob(str(path) + "/*h5")
         obsdatetime = datetime.strptime(obsdate, fmt)
         date = date = f'{obsdatetime.year}{obsdatetime.timetuple().tm_yday}'
         h, v = self.converter(latitude, longitude)
@@ -203,8 +202,7 @@ class Viirs1KMDownloader():
 
         surface_files = re.compile(r'.*' + f'VNP09GA.A{date}.(h{h}v{v}).*')
         match = list(filter(surface_files.match, all_files))
-
-        if len(match):
+        if len(match) != 0:
             surface = match[0]
         else:
             warnings.warn(UserWarning("Surface data for the given information not found on the disk. \
@@ -213,8 +211,7 @@ class Viirs1KMDownloader():
 
         fire_files = re.compile(r'.*' + f'VNP14A1.A{date}.(h{h}v{v}).*')
         match = list(filter(fire_files.match, all_files))
-
-        if len(match):
+        if len(match) != 0:
             fire = match[0]
         else:
             warnings.warn(UserWarning("Fire data for the given information not found on the disk. \
