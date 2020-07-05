@@ -1,3 +1,2 @@
-from wildfirepy.io import hdf
-
-__all__ = ['hdf']
+from wildfirepy.io.hdf import *
+from wildfirepy.io.viirs1km import *
