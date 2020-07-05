@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from skimage import exposure
 
-from wildfirepy.gis import MapFactory
+from wildfirepy.gis.mapfactory import MapFactory
 
 __all__ = ['Map']
 
