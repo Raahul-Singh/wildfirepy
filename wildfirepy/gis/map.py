@@ -10,8 +10,7 @@ class Map(MapFactory):
 
     def __init__(self, data=None, **kwargs):
         super().__init__(data, **kwargs)
-
-        if data is None and kwargs is None:
+        if data is None and len(kwargs) == 0:
             raise ValueError
 
         self.data = self.load_data()
