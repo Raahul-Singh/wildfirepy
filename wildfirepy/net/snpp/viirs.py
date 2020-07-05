@@ -193,6 +193,25 @@ class Viirs1KMDownloader():
 
     def get_data(self, *, obsdate: str, latitude: float,
                 longitude: float, fmt: str= "%Y-%m-%d", **kwargs):
+        """
+        Checks if data corresponding to the given obsdate is on the disk.
+        If not, the data is downloaded.
+        Parameters
+        ----------
+        obsdate : str
+            The date of observation.
+        latitude: float
+            latitude of the observation.
+        longitude: float
+            longitude of the observation.
+        fmt : str, optional
+            The format in which the obsdate is given,
+            by default "%Y-%m-%d"
+        Returns
+        -------
+        data_dict : dict
+            dictionary with the surface and fire data filenames.
+        """
         all_files = glob.glob(str(path) + "/*h5")
         obsdatetime = datetime.strptime(obsdate, fmt)
         date = date = f'{obsdatetime.year}{obsdatetime.timetuple().tm_yday}'
