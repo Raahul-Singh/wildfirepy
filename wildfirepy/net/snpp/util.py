@@ -62,7 +62,7 @@ class Viirs1KMParser:
 
     def __call__(self, url):
         self.html_content = self.url_opener(url).read().decode('cp1252')
- 
+
     def get_all_h5_files(self):
         """
         Returns list of all `h5` files available for download.
