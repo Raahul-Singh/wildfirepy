@@ -12,6 +12,7 @@ __all__ = ['Viirs1KMDownloader']
 
 path = Path(__file__).parent.parent.parent / "data/VIIRS1KM/"
 
+
 class Viirs1KM:
     def __init__(self, product: str):
         """
@@ -44,7 +45,7 @@ class Viirs1KM:
         return self.regex_traverser.get_filename(h, v)
 
     def get_h5(self, *, obsdate: str, latitude: float,
-               longitude: float, fmt: str= "%Y-%m-%d", **kwargs):
+               longitude: float, fmt: str = "%Y-%m-%d", **kwargs):
         """
         Downloads the `h5` file and stores it on the disk.
 
@@ -74,7 +75,7 @@ class Viirs1KM:
         return self.fetch(url=url, filename=filename, **kwargs)
 
     def get_xml(self, *, obsdate: str, latitude: float,
-                longitude: float, fmt: str= "%Y-%m-%d", **kwargs):
+                longitude: float, fmt: str = "%Y-%m-%d", **kwargs):
         """
         Downloads the `xml` file and stores it on the disk.
 
@@ -104,7 +105,7 @@ class Viirs1KM:
         return self.fetch(url=url, filename=filename, **kwargs)
 
     def get_jpg(self, *, obsdate: str, latitude: float,
-                longitude: float, fmt: str= "%Y-%m-%d", **kwargs):
+                longitude: float, fmt: str = "%Y-%m-%d", **kwargs):
         """
         Downloads the `jpg` file and stores it on the disk.
 
@@ -192,7 +193,7 @@ class Viirs1KMDownloader():
         self.converter = SinusoidalCoordinate()
 
     def get_data(self, *, obsdate: str, latitude: float,
-                longitude: float, fmt: str= "%Y-%m-%d", **kwargs):
+                 longitude: float, fmt: str = "%Y-%m-%d", **kwargs):
         """
         Checks if data corresponding to the given obsdate is on the disk.
         If not, the data is downloaded.
@@ -237,5 +238,5 @@ class Viirs1KMDownloader():
                                        Downloading the file!"))
             fire = self.fire_client.get_h5(obsdate=obsdate, latitude=latitude, longitude=longitude, **kwargs)
 
-        return {'surface' : surface,
-                'fire' : fire}
+        return {'surface': surface,
+                'fire': fire}

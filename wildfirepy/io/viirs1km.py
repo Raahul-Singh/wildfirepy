@@ -1,15 +1,17 @@
 import h5py
+
 from wildfirepy.net import Viirs1KMDownloader
 
 __all__ = ['Viirs1KmLoader']
+
 
 class Viirs1KmLoader:
     def __init__(self):
         self.Viirs1KMDownloader = Viirs1KMDownloader()
 
     def get_data(self, data):
-        surface_data = h5py.File(data['surface'],'r')
-        fire_data = h5py.File(data['fire'],'r')
+        surface_data = h5py.File(data['surface'], 'r')
+        fire_data = h5py.File(data['fire'], 'r')
         return {'surface': surface_data, 'fire': fire_data, 'datatype': 'Viirs1Km'}
 
     def list_all_keys(self, data):
@@ -29,4 +31,3 @@ class Viirs1KmLoader:
 
     def get_fire_datafields(self, data):
         return list(data['fire']['HDFEOS']['GRIDS']['VNP14A1_Grid']['Data Fields'])
-

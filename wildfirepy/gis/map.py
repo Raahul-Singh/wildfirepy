@@ -1,10 +1,12 @@
-from wildfirepy.gis import MapFactory
 import h5py
-from skimage import exposure
 import matplotlib.pyplot as plt
 import numpy as np
+from skimage import exposure
+
+from wildfirepy.gis import MapFactory
 
 __all__ = ['Map']
+
 
 class Map(MapFactory):
 
@@ -23,27 +25,28 @@ class Map(MapFactory):
     def _get_all_datasets(self, data):
         grids = self.Viirs1KmLoader.get_grids(data)
         h5_objs = self._get_all_objects(data)
-        all_datasets = [obj for grid in grids for obj in h5_objs if isinstance(data[obj],h5py.Dataset) and grid in obj] 
+        all_datasets = [obj for grid in grids for obj in h5_objs if isinstance(data[obj], h5py.Dataset) and grid in obj]
         return all_datasets
 
     def get_all_fire_objects(self):
         return self._get_all_objects(self.data['fire'])
+
     def get_all_surface_objects(self):
         return self._get_all_objects(self.data['surface'])
 
     def get_all_fire_datasets(self):
         return self._get_all_datasets(self.data['fire'])
+
     def get_all_surface_datasets(self):
         return self._get_all_datasets(self.data['surface'])
 
-
     def get_surface_rgb(self):
         all_datasets = self.get_all_surface_datasets()
-        r = self.data['surface'][[a for a in all_datasets if 'M5' in a][0]] # M5 = Red
-        g = self.data['surface'][[a for a in all_datasets if 'M4' in a][0]] # M4 = Green
-        b = self.data['surface'][[a for a in all_datasets if 'M3' in a][0]] # M3 = Blue
-        n = self.data['surface'][[a for a in all_datasets if 'M7' in a][0]] # M7  = NIR
-        return r,g,b,n
+        r = self.data['surface'][[a for a in all_datasets if 'M5' in a][0]]  # M5 = Red
+        g = self.data['surface'][[a for a in all_datasets if 'M4' in a][0]]  # M4 = Green
+        b = self.data['surface'][[a for a in all_datasets if 'M3' in a][0]]  # M3 = Blue
+        n = self.data['surface'][[a for a in all_datasets if 'M7' in a][0]]  # M7  = NIR
+        return r, g, b, n
 
     def get_attributes_of_rgb(self, color):
         return list(color.attrs)
@@ -55,39 +58,39 @@ class Map(MapFactory):
         return color.attrs['_FillValue'][0]
 
     def get_scaled_stacked_rgb(self):
-        r,g,b,n = self.get_surface_rgb()
+        r, g, b, n = self.get_surface_rgb()
         scaleFactor = self.get_scale_value(r)
         fillValue = self.get_fill_value(r)
         red = r[()] * scaleFactor
         green = g[()] * scaleFactor
         blue = b[()] * scaleFactor
-        nir = n[()] * scaleFactor 
-        rgb = np.dstack((red,green,blue))
+        n[()] * scaleFactor
+        rgb = np.dstack((red, green, blue))
         rgb[rgb == fillValue * scaleFactor] = 0
         return rgb
 
     def apply_contrast_stretch_gamma_correction(self, rgb):
-        p2, p98 = np.percentile(rgb, (2, 98))                              # Calculate 2nd,98th percentile for updating min/max vals
-        rgbStretched = exposure.rescale_intensity(rgb, in_range=(p2, p98)) # Perform contrast stretch on RGB range
-        rgbStretched = exposure.adjust_gamma(rgbStretched, 0.5)            # Perform Gamma Correction
+        p2, p98 = np.percentile(rgb, (2, 98))                               # Calculate 2nd,98th percentile for updating min/max vals
+        rgbStretched = exposure.rescale_intensity(rgb, in_range=(p2, p98))  # Perform contrast stretch on RGB range
+        rgbStretched = exposure.adjust_gamma(rgbStretched, 0.5)             # Perform Gamma Correction
         return rgbStretched
 
     def get_corrected_rgb_image(self):
-        firemask = self.Viirs1KmLoader.get_firemask( self.data['fire'])
+        firemask = self.Viirs1KmLoader.get_firemask(self.data['fire'])
         rgb = self.get_scaled_stacked_rgb()
         rgbStretched = self.apply_contrast_stretch_gamma_correction(rgb)
-        fig = plt.figure(figsize =(15,15), dpi=100)                           # Set the figure size
-        ax = plt.Axes(fig,[0,0,1,1])
-        ax.set_axis_off()                                            # Turn off axes
+        fig = plt.figure(figsize=(15, 15), dpi=100)                           # Set the figure size
+        ax = plt.Axes(fig, [0, 0, 1, 1])
+        ax.set_axis_off()  # Turn off axes
         fig.add_axes(ax)
 
         firemask[firemask != 9] = 0
-        pts= list(zip(np.where(firemask !=0)[0],np.where(firemask !=0)[1]))
+        pts = list(zip(np.where(firemask != 0)[0], np.where(firemask != 0)[1]))
 
-        ax.imshow(rgbStretched)#, interpolation='bilinear', alpha=0.9) # Plot a natural color RGB
-        
+        ax.imshow(rgbStretched)  # Plot a natural color RGB
+
         for i, j in pts:
             plt.annotate('Fire!', xy=(j, i), xycoords='data',
-                    xytext=(0.5, 0.5), textcoords='figure fraction',
-                    arrowprops=dict(arrowstyle="->"))
+                         xytext=(0.5, 0.5), textcoords='figure fraction',
+                         arrowprops=dict(arrowstyle="->"))
         plt.show()

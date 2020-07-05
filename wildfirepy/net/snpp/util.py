@@ -7,6 +7,7 @@ from urllib.request import (HTTPBasicAuthHandler, HTTPCookieProcessor,
 
 __all__ = ['URLOpenerWithRedirect', 'Viirs1KMParser']
 
+
 class URLOpenerWithRedirect:
     """
     Description

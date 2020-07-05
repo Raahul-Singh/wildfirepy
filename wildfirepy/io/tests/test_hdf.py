@@ -1,5 +1,6 @@
 import numpy as np
 import pytest
+
 from wildfirepy.io.hdf import ReadH5
 from wildfirepy.net.usgs import VIIRSBurntAreaDownloader
 
