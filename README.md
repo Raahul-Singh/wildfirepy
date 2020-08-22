@@ -42,7 +42,7 @@ Getting Help
 
 For more information or to ask questions about WildfirePy, check out:
 
- * IRC: #wildfirepy on [Riot](https://riot.im/app/#/room/!jWUOIxirCHymPQkpXb:matrix.org)
+ * IRC: #wildfirepy on [Element](https://app.element.io/#/room/!jWUOIxirCHymPQkpXb:matrix.org)
 
 Contributing
 ------------
