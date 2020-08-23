@@ -1,0 +1,1 @@
+Adds Vision statement which contains info about the motivation behind this project.
