@@ -42,12 +42,12 @@ Getting Help
 
 For more information or to ask questions about WildfirePy, check out:
 
- * IRC: #wildfirepy on [Element](https://app.element.io/#/room/!jWUOIxirCHymPQkpXb:matrix.org)
+ * IRC: #wildfirepy on [Element](https://app.element.io/#/room/#wildfirepy:matrix.org)
 
 Contributing
 ------------
 
-If you would like to get involved, start by joining the IRC chat room named `#wildfirepy` on [Element](https://app.element.io/#/room/!jWUOIxirCHymPQkpXb:matrix.org).
+If you would like to get involved, start by joining the IRC chat room named `#wildfirepy` on [Element](https://app.element.io/#/room/#wildfirepy:matrix.org).
 You may follow our [LinkedIn](https://www.linkedin.com/company/wildfirepy/) and [Twitter](https://twitter.com/wildfirepy) handle as well!
 
 Help is always welcome so let us know what you like to work on, or check out the [issues page](https://github.com/wildfirepy/wildfirepy/issues) for a list of some known outstanding items.
