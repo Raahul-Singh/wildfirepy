@@ -155,3 +155,6 @@ htmlcov/
 
 # Mac OS
 .history/
+
+# data files
+wildfirepy/data/*
