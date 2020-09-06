@@ -35,7 +35,6 @@ extensions = [
     'sphinx.ext.autodoc',       # For auto generating docs from docstrings
     'sphinx.ext.mathjax',       # For LaTeX-style equations
     'sphinx.ext.napoleon',      # For Numpy style docstrings
-    'm2r',                      # For Markdown files to rst
 ]
 
 # Add any paths that contain templates here, relative to this directory.
