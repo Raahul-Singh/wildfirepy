@@ -62,14 +62,16 @@ intersphinx_mapping = {
     'scipy': ('https://docs.scipy.org/doc/scipy/reference/',
               (None, 'http://data.astropy.org/intersphinx/scipy.inv')),
     'matplotlib': ('https://matplotlib.org/',
-                   (None, 'http://data.astropy.org/intersphinx/matplotlib.inv')),
+                   (None, 'http://data.astropy.org/intersphinx/matplotlib.inv'))}
 
 # -- Options for HTML output -------------------------------------------------
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
+# The theme to use for HTML and HTML Help pages. See the documentation for
 # a list of builtin themes.
 
 from sphinx_rtd_theme.conf import *
+
+master_doc = "index"
     
 html_theme = 'sphinx_rtd_theme'
 html_logo = '_static/logo_transparent_background.png'
