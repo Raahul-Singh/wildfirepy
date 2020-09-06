@@ -7,15 +7,7 @@ Welcome to WildfirePy's documentation!
 ======================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Getting Started
-
-   readme
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: API Reference
+   :maxdepth: 3
 
    wildfirepy.coordinates
    wildfirepy.net
