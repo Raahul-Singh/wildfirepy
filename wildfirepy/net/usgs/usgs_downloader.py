@@ -8,8 +8,6 @@ __all__ = ['AbstractUSGSDownloader']
 
 class AbstractUSGSDownloader:
     """
-    Description
-    -----------
     An Abstract Base Class Downloader for USGS products.
     """
     def __init__(self):
@@ -74,6 +72,7 @@ class AbstractUSGSDownloader:
     def fetch(self, url, path='./', filename='temp.h5'):
         """
         Fetches data from `url`.
+
         Parameters
         ----------
         url: `str`
@@ -82,6 +81,7 @@ class AbstractUSGSDownloader:
             path to store the downladed file.
         filename: `str`
             name of the downladed file.
+
         Returns
         -------
         path: `str`
