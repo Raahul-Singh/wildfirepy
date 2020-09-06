@@ -69,7 +69,7 @@ intersphinx_mapping = {
 # The theme to use for HTML and HTML Help pages. See the documentation for
 # a list of builtin themes.
 
-import sphinx_rtd_theme
+# import sphinx_rtd_theme
 
 html_theme = 'sphinx_rtd_theme'
 html_logo = '_static/logo_transparent_background.png'
