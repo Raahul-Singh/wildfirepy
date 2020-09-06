@@ -36,7 +36,6 @@ extensions = [
     'sphinx.ext.mathjax',       # For LaTeX-style equations
     'sphinx.ext.napoleon',      # For Numpy style docstrings
     'sphinx_automodapi.automodapi',
-    'sphinx_automodapi.smart_resolver',
     'sphinx_rtd_theme',
 ]
 
