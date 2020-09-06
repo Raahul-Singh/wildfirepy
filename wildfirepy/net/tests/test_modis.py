@@ -2,7 +2,6 @@ import subprocess
 from xml.dom import minidom
 
 import pytest
-
 from wildfirepy.net.usgs import ModisBurntAreaDownloader
 from wildfirepy.net.util import MODISHtmlParser, URLOpenerWithRedirect
 

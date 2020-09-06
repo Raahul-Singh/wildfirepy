@@ -3,7 +3,6 @@ import datetime
 from wildfirepy.net.usgs.usgs_downloader import AbstractUSGSDownloader
 from wildfirepy.net.util.usgs import VIIRSHtmlParser
 from wildfirepy.coordinates.util import SinusoidalCoordinate
-import datetime
 
 __all__ = ['VIIRSBurntAreaDownloader']
 
@@ -179,7 +178,6 @@ class Viirs_ext(Viirs):
             latitude of the observation.
         longitude: `float`
             longitude of the observation.
-        
         kwargs: `dict`
             keyword arguments to be passed to `AbstractUSGSDownloader.fetch`
 
