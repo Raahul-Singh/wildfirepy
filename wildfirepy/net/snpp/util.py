@@ -10,8 +10,6 @@ __all__ = ['URLOpenerWithRedirect', 'Viirs1KMParser']
 
 class URLOpenerWithRedirect:
     """
-    Description
-    -----------
     A `urllib` based URL opener for URLs that require Login Authentication
     and lead to redirects.
     Creates a minimal opener with a HTTP Password Manager, and a HTTP CookieJar
@@ -73,12 +71,14 @@ class Viirs1KMParser:
     def get_filename(self, h, v):
         """
         Returns full name of the file based on the Sinusoidal Grid coordinates.
+
         Parameters
         ----------
         h: `int`
             Sinusoidal grid longitude
         v: `int`
             Sinusoidal grid latitude
+
         References
         ----------
         [1] https://modis-land.gsfc.nasa.gov/MODLAND_grid.html

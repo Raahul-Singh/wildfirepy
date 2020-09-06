@@ -9,8 +9,6 @@ __all__ = ['VIIRSBurntAreaDownloader']
 
 class Viirs(AbstractUSGSDownloader):
     """
-    Description
-    -----------
     An Abstract Base Class Downloader for VIIRS products.
     """
     def __init__(self, product=''):
@@ -34,9 +32,6 @@ class Viirs(AbstractUSGSDownloader):
         return f'{hours}{minutes}'
 
     def _get_date(self, year, month, date):
-        """
-
-        """
         dt = f'{year}.{month}.{date}'
         fmt = f'%Y.%m.%d'
         dt = datetime.datetime.strptime(dt, fmt)
@@ -117,8 +112,6 @@ class Viirs(AbstractUSGSDownloader):
 
 class Viirs_ext(Viirs):
     """
-    Description
-    -----------
     An Abstract Base Class Downloader for VIIRS products.
     """
     def __init__(self, product=''):
@@ -196,8 +189,6 @@ class Viirs_ext(Viirs):
 
 class VIIRSFireAreaDownloader(Viirs_ext):
     """
-    Description
-    -----------
     VIIRS Class for ``, i.e., Fire Area Data.
     """
     def __init__(self):
@@ -205,8 +196,6 @@ class VIIRSFireAreaDownloader(Viirs_ext):
 
 class VIIRSBurntAreaDownloader(Viirs):
     """
-    Description
-    -----------
     VIIRS Class for `VNP03MODLL`, i.e., Burnt Area.
     """
     def __init__(self):

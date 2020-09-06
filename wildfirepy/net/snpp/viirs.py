@@ -185,7 +185,7 @@ class VNP09GA(Viirs1KM):
         super().__init__(product='VNP09GA')
 
 
-class Viirs1KMDownloader():
+class Viirs1KMDownloader:
 
     def __init__(self):
         self.surface_client = VNP09GA()
@@ -197,6 +197,7 @@ class Viirs1KMDownloader():
         """
         Checks if data corresponding to the given obsdate is on the disk.
         If not, the data is downloaded.
+
         Parameters
         ----------
         obsdate : str
@@ -208,6 +209,7 @@ class Viirs1KMDownloader():
         fmt : str, optional
             The format in which the obsdate is given,
             by default "%Y-%m-%d"
+
         Returns
         -------
         data_dict : dict
