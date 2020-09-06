@@ -128,7 +128,7 @@ class Viirs_ext(Viirs):
         self.regex_traverser = VIIRSHtmlParser(product=product)
         self.converter = SinusoidalCoordinate()
 
-    def get_h5(self, *, year, month, date, latitude, longitude,  **kwargs):
+    def get_h5(self, *, year, month, date, latitude, longitude, **kwargs):
         """
         Downloads the `h5` file and stores it on the disk.
 
