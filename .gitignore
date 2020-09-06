@@ -153,6 +153,8 @@ htmlcov/
 # VS Code
 .vscode
 
+.idea
+
 # Mac OS
 .history/
 
