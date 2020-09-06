@@ -28,4 +28,4 @@ python:
     - method: pip
       extra_requirements:
         - dev
-        path: .
+      path: .
