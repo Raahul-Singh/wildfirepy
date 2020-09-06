@@ -35,7 +35,12 @@ extensions = [
     'sphinx.ext.autodoc',       # For auto generating docs from docstrings
     'sphinx.ext.mathjax',       # For LaTeX-style equations
     'sphinx.ext.napoleon',      # For Numpy style docstrings
+    'sphinx_automodapi.automodapi',
+    'sphinx_automodapi.smart_resolver',
 ]
+
+# For sphinx_automodapi setup
+numpydoc_show_class_members = False
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
