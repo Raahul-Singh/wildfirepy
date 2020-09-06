@@ -1,5 +1,4 @@
 import h5py
-
 from wildfirepy.net import Viirs1KMDownloader
 
 __all__ = ['Viirs1KmLoader']

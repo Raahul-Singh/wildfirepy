@@ -2,7 +2,6 @@ import h5py
 import matplotlib.pyplot as plt
 import numpy as np
 from skimage import exposure
-
 from wildfirepy.gis.mapfactory import MapFactory
 
 __all__ = ['Map']

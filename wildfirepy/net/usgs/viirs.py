@@ -1,9 +1,8 @@
 import datetime
 
+from wildfirepy.coordinates.util import SinusoidalCoordinate
 from wildfirepy.net.usgs.usgs_downloader import AbstractUSGSDownloader
 from wildfirepy.net.util.usgs import VIIRSHtmlParser
-from wildfirepy.coordinates.util import SinusoidalCoordinate
-import datetime
 
 __all__ = ['VIIRSBurntAreaDownloader']
 
@@ -116,7 +115,7 @@ class Viirs(AbstractUSGSDownloader):
         return self.fetch(url=url, filename=filename, **kwargs)
 
 
-class Viirs_ext(Viirs)
+class Viirs_ext(Viirs):
     """
     Description
     -----------
@@ -129,7 +128,7 @@ class Viirs_ext(Viirs)
         self.regex_traverser = VIIRSHtmlParser(product=product)
         self.converter = SinusoidalCoordinate()
 
-    def get_h5(self, *, year, month, date, latitude, longitude  **kwargs):
+    def get_h5(self, *, year, month, date, latitude, longitude, **kwargs):
         """
         Downloads the `h5` file and stores it on the disk.
 
@@ -179,7 +178,6 @@ class Viirs_ext(Viirs)
             latitude of the observation.
         longitude: `float`
             longitude of the observation.
-        
         kwargs: `dict`
             keyword arguments to be passed to `AbstractUSGSDownloader.fetch`
 
