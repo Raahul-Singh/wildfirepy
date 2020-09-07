@@ -51,4 +51,6 @@ Contributing
 If you would like to get involved, start by joining the IRC chat room named `#wildfirepy` on [Element](https://app.element.io/#/room/#wildfirepy:matrix.org).
 You may follow our [LinkedIn](https://www.linkedin.com/company/wildfirepy/) and [Twitter](https://twitter.com/wildfirepy) handle as well!
 
-Contribution is always welcome so do let us know what you would like to work on; you can do so via our IRC. Alternatively, do check out our [issue tracker](https://github.com/wildfirepy/wildfirepy/issues) for a list of some known outstanding items or open new issues if you have encountered a bug, have a feature request, or some question(s) regarding our project you would like to discuss. 
+Contribution is always welcome so do let us know what you would like to work on, and you can do so via our IRC. 
+Alternatively, do check out our [issues tracker](https://github.com/wildfirepy/wildfirepy/issues) for a list of some known outstanding items, 
+or open new issues if you have encountered a bug, have a feature request, or some question(s) regarding our project you would like to discuss. 
