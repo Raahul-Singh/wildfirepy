@@ -11,29 +11,36 @@ WildfirePy is an open-source Python library for Wildfire GIS data analysis.
 Installation
 ------------
 
-Use git to grab the latest version of WildfirePy::
+Use git to grab the latest version of `wildfirepy`:
 
-    git clone https://github.com/wildfirepy/wildfirepy.git
+```bash
+git clone https://github.com/wildfirepy/wildfirepy.git
+```
 
-Done! In order to enable WildfirePy to be imported from any location you must make
-sure that the library is somewhere in your PYTHONPATH environmental variable.
-For now the easiest thing is to install it locally by running the following::
+Once the downloading is done, you will have a copy of `wildfirepy` locally.
+In order to enable `wildfirepy` can be imported from any location on your local machine, you must make sure that the package is somewhere in your path as set up with the `PYTHONPATH` environmental variable.
 
-    pip install -e .
+Then you can install it locally by running the following command:
+
+```bash
+pip install -e .
+```
 
 at the root of the directory you have just downloaded.
 
 Usage
 -----
 
-Here is a quick example of downloanding some burnt area information from MODIS::
+Here is a quick example of downloanding some burnt area information from MODIS:
 
-    >>> from wildfirepy.net.usgs import ModisBurntAreaDownloader
-    >>> import matplotlib.pyplot as plt
-    >>> dl = ModisBurntAreaDownloader()
-    >>> jpg_file = dl.get_jpg(year=2020, month=2, latitude=28.7041, longitude=77.1025)
-    >>> plt.imshow(plt.imread(jpg_file))
-    >>> plt.show()
+```python
+>>> from wildfirepy.net.usgs import ModisBurntAreaDownloader
+>>> import matplotlib.pyplot as plt
+>>> dl = ModisBurntAreaDownloader()
+>>> jpg_file = dl.get_jpg(year=2020, month=2, latitude=28.7041, longitude=77.1025)
+>>> plt.imshow(plt.imread(jpg_file))
+>>> plt.show()
+```
 
 Getting Help
 ------------
