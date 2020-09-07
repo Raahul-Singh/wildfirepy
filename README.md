@@ -11,32 +11,29 @@ WildfirePy is an open-source Python library for Wildfire GIS data analysis.
 Installation
 ------------
 
-Use git to grab the latest version of WildfirePy:
+Use git to grab the latest version of WildfirePy::
 
     git clone https://github.com/wildfirepy/wildfirepy.git
 
 Done! In order to enable WildfirePy to be imported from any location you must make
 sure that the library is somewhere in your PYTHONPATH environmental variable.
-For now the easiest thing is to install it locally by running,
-```
-pip install -e .
-```
-from the directory you just
-downloaded.
+For now the easiest thing is to install it locally by running the following::
+
+    pip install -e .
+
+at the root of the directory you have just downloaded.
 
 Usage
 -----
 
-Here is a quick example of downloanding some burnt area information from MODIS:
+Here is a quick example of downloanding some burnt area information from MODIS::
 
-```python
->>> from wildfirepy.net.usgs import ModisBurntAreaDownloader
->>> import matplotlib.pyplot as plt
->>> dl = ModisBurntAreaDownloader()
->>> jpg_file = dl.get_jpg(year=2020, month=2, latitude=28.7041, longitude=77.1025)
->>> plt.imshow(plt.imread(jpg_file))
->>> plt.show()
-```
+    >>> from wildfirepy.net.usgs import ModisBurntAreaDownloader
+    >>> import matplotlib.pyplot as plt
+    >>> dl = ModisBurntAreaDownloader()
+    >>> jpg_file = dl.get_jpg(year=2020, month=2, latitude=28.7041, longitude=77.1025)
+    >>> plt.imshow(plt.imread(jpg_file))
+    >>> plt.show()
 
 Getting Help
 ------------
@@ -52,5 +49,4 @@ If you would like to get involved, start by joining the IRC chat room named `#wi
 You may follow our [LinkedIn](https://www.linkedin.com/company/wildfirepy/) and [Twitter](https://twitter.com/wildfirepy) handle as well!
 
 Contribution is always welcome so do let us know what you would like to work on, and you can do so via our IRC. 
-Alternatively, do check out our [issues tracker](https://github.com/wildfirepy/wildfirepy/issues) for a list of some known outstanding items, 
-or open new issues if you have encountered a bug, have a feature request, or some question(s) regarding our project you would like to discuss. 
+Alternatively, do check out our [issues tracker](https://github.com/wildfirepy/wildfirepy/issues) for a list of some known outstanding items, or open new issues if you have encountered a bug, have a feature request, or got some question(s) regarding our project you would like to discuss. 
