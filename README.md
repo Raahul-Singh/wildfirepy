@@ -4,24 +4,29 @@ WildfirePy
 ![Python application](https://github.com/wildfirepy/wildfirepy/workflows/Python%20application/badge.svg)
 ![Python Online Tests](https://github.com/wildfirepy/wildfirepy/workflows/Python%20Online%20Tests/badge.svg)
 ![Codestyle](https://github.com/wildfirepy/wildfirepy/workflows/Codestyle/badge.svg)
+[![Documentation Status](https://readthedocs.org/projects/wildfirepy/badge/?version=latest)](https://wildfirepy.readthedocs.io/en/latest/?badge=latest)
 
 WildfirePy is an open-source Python library for Wildfire GIS data analysis.
 
 Installation
 ------------
 
-Use git to grab the latest version of WildfirePy:
+Use git to grab the latest version of `wildfirepy`:
 
-    git clone https://github.com/wildfirepy/wildfirepy.git
-
-Done! In order to enable WildfirePy to be imported from any location you must make
-sure that the library is somewhere in your PYTHONPATH environmental variable.
-For now the easiest thing is to install it locally by running,
+```bash
+git clone https://github.com/wildfirepy/wildfirepy.git
 ```
+
+Once the downloading is done, you will have a copy of `wildfirepy` locally.
+In order to enable `wildfirepy` can be imported from any location on your local machine, you must make sure that the package is somewhere in your path as set up with the `PYTHONPATH` environmental variable.
+
+Then you can install it locally by running the following command:
+
+```bash
 pip install -e .
 ```
-from the directory you just
-downloaded.
+
+at the root of the directory you have just downloaded.
 
 Usage
 -----
@@ -42,12 +47,13 @@ Getting Help
 
 For more information or to ask questions about WildfirePy, check out:
 
- * IRC: #wildfirepy on [Riot](https://riot.im/app/#/room/!jWUOIxirCHymPQkpXb:matrix.org)
+ * IRC: #wildfirepy on [Element](https://app.element.io/#/room/#wildfirepy:matrix.org)
 
 Contributing
 ------------
 
-If you would like to get involved, start by joining the IRC chat room named `#wildfirepy` on [Riot](https://riot.im/app/#/room/!jWUOIxirCHymPQkpXb:matrix.org).
+If you would like to get involved, start by joining the IRC chat room named `#wildfirepy` on [Element](https://app.element.io/#/room/#wildfirepy:matrix.org).
 You may follow our [LinkedIn](https://www.linkedin.com/company/wildfirepy/) and [Twitter](https://twitter.com/wildfirepy) handle as well!
 
-Help is always welcome so let us know what you like to work on, or check out the [issues page](https://github.com/wildfirepy/wildfirepy/issues) for a list of some known outstanding items.
+Contribution is always welcome so do let us know what you would like to work on, and you can do so via our IRC.
+Alternatively, do check out our [issues tracker](https://github.com/wildfirepy/wildfirepy/issues) for a list of some known outstanding items, or open new issues if you have encountered a bug, have a feature request, or got some question(s) regarding our project you would like to discuss.

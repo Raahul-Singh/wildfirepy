@@ -7,8 +7,6 @@ __all__ = ['ModisBurntAreaDownloader']
 
 class Modis(AbstractUSGSDownloader):
     """
-    Description
-    -----------
     An Abstract Base Class Downloader for MODIS products.
     """
     def __init__(self, data='MOTA', product=''):
@@ -61,6 +59,7 @@ class Modis(AbstractUSGSDownloader):
     def get_filename(self, latitude, longitude):
         """
         Returns name of file for given latitude and longitude.
+
         Parameters
         ----------
         latitude: `float`
@@ -74,6 +73,7 @@ class Modis(AbstractUSGSDownloader):
     def get_hdf(self, *, year, month, latitude, longitude, **kwargs):
         """
         Downloads the `hdf` file and stores it on the disk.
+
         Parameters
         ----------
         year: `int`
@@ -85,6 +85,7 @@ class Modis(AbstractUSGSDownloader):
         longitude: `float`
             longitude of the observation.
         kwargs: keyword arguments to be passed to `AbstractUSGSDownloader.fetch`
+
         Returns
         -------
         path: `str`
@@ -102,6 +103,7 @@ class Modis(AbstractUSGSDownloader):
     def get_xml(self, *, year, month, latitude, longitude, **kwargs):
         """
         Downloads the `xml` file and stores it on the disk.
+
         Parameters
         ----------
         year: `int`
@@ -113,6 +115,7 @@ class Modis(AbstractUSGSDownloader):
         longitude: `float`
             longitude of the observation.
         kwargs: keyword arguments to be passed to `AbstractUSGSDownloader.fetch`
+
         Returns
         -------
         path: `str`
@@ -131,6 +134,7 @@ class Modis(AbstractUSGSDownloader):
     def get_jpg(self, *, year, month, latitude, longitude, **kwargs):
         """
         Downloads the `jpg` file and stores it on the disk.
+
         Parameters
         ----------
         year: `int`
@@ -142,6 +146,7 @@ class Modis(AbstractUSGSDownloader):
         longitude: `float`
             longitude of the observation.
         kwargs: keyword arguments to be passed to `AbstractUSGSDownloader.fetch`
+
         Returns
         -------
         path: `str`
@@ -160,8 +165,6 @@ class Modis(AbstractUSGSDownloader):
 
 class ModisBurntAreaDownloader(Modis):
     """
-    Description
-    -----------
     MODIS Class for `MCD64A1`, i.e., Burnt Area.
     By default downloads data from the 6th collection.
     """

@@ -8,8 +8,6 @@ __all__ = ['ReadH5']
 
 class ReadH5:
     """
-    Description
-    -----------
     A class to make read objects for h5 files.
 
     Parameters

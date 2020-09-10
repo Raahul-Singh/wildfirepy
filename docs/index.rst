@@ -3,19 +3,11 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to WildfirePy's documentation!
-======================================
+Welcome to WildfirePy's documentation
+=====================================
+This is the official docs for the WildfirePy package.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Getting Started
+   :maxdepth: 3
 
-   readme
-
-
-.. toctree::
-   :maxdepth: 2
-   :caption: API Reference
-
-   wildfirepy.coordinates
-   wildfirepy.net
+   api

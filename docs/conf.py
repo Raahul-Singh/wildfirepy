@@ -35,8 +35,12 @@ extensions = [
     'sphinx.ext.autodoc',       # For auto generating docs from docstrings
     'sphinx.ext.mathjax',       # For LaTeX-style equations
     'sphinx.ext.napoleon',      # For Numpy style docstrings
-    'm2r',                      # For Markdown files to rst
+    'sphinx_automodapi.automodapi',
+    'sphinx_rtd_theme',
 ]
+
+# For sphinx_automodapi setup
+numpydoc_show_class_members = False
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -46,12 +50,26 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+# -- Options for intersphinx extension ---------------------------------------
+
+# Example configuration for intersphinx: refer to the Python standard library.
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3/',
+               (None, 'http://data.astropy.org/intersphinx/python3.inv')),
+    'numpy': ('https://numpy.org/doc/stable/',
+              (None, 'http://data.astropy.org/intersphinx/numpy.inv')),
+    'scipy': ('https://docs.scipy.org/doc/scipy/reference/',
+              (None, 'http://data.astropy.org/intersphinx/scipy.inv')),
+    'matplotlib': ('https://matplotlib.org/',
+                   (None, 'http://data.astropy.org/intersphinx/matplotlib.inv'))}
 
 # -- Options for HTML output -------------------------------------------------
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
+# The theme to use for HTML and HTML Help pages. See the documentation for
 # a list of builtin themes.
-#
+
+# import sphinx_rtd_theme
+
 html_theme = 'sphinx_rtd_theme'
 html_logo = '_static/logo_transparent_background.png'
 
